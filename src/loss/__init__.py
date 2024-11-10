@@ -79,7 +79,7 @@ class Loss_fake():
         self.image_loss_function = nn.L1Loss()
     def loss_calc(self,out,label, out_label, model):
         out_label=out_label.type(torch.long)
-        if(model=='crnet' or model=='my2'):
+        if(model=='fldcf'):
             pred, real_or = out
             b,c,w,h = pred.size()
             label = Variable(label.long()).cuda()
@@ -94,7 +94,7 @@ class Loss_fake():
             label = Variable(label.long()).cuda()
             corss = self.criterion(pred, label) 
             loss = corss
-        if(model=='scunet' or model=='mvss' or model=='dfcn'):
+        if(model=='scunet' or model=='mvss'):
             pred = out
             #b,c,w,h = pred.size()
             #label = Variable(label.long()).cuda()
@@ -102,12 +102,6 @@ class Loss_fake():
             loss = corss
         if(model =='face' or model =='deepfake'):
             loss = self.fake(out,out_label)
-        if(model=='patch'):
-            assert(len(out.shape) == 4)
-            assert(out.shape[1] == 2)
-            n, c, h, w = out.shape
-            labels = out_label.view(-1, 1, 1).expand(n, h, w)
-            loss=self.fake(out, labels)
         if(model =='capsule'):
             out_label =  Variable(out_label, requires_grad=False)
             classes, class_ = out
@@ -120,7 +114,7 @@ class Loss_fake():
         return loss
     
     def test_handle(self,out, model):
-        if(model=='crnet' or model=='my2'):
+        if(model=='fldcf'):
             pred, real_or = out
             pred = pred.cpu().data[0].numpy()
             pred = np.asarray(np.argmax(pred, axis=0), dtype=int)

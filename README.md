@@ -6,7 +6,10 @@ The code for FLDCF: A Collaborative Framework for Forgery Localization and Detec
 
 # Data preprocessing 🔨
 
-Our datasets could be obtained from [https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA]{https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA} code：been
+Our datasets could be obtained from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./data)
+
+
+Put it into ./data and rename them as fakeV and fakeL.
 
 ```
 ├── Fake-Vaihingen/LoveDA
@@ -36,27 +39,46 @@ Forgery localization
 
 * SCSE-Unet : [Robust image forgery detection against transmission over online social networks](https://ieeexplore.ieee.org/abstract/document/9686650/)
 * MVSSNet : [Mvss-net: Multi-view multi-scale supervised networks for image manipulation detection](https://ieeexplore.ieee.org/abstract/document/9789576)
-* SE-Network : [Multi-task {SE-network} for image splicing localization](https://ieeexplore.ieee.org/abstract/document/9591639)
+* SE-Network : [Multi-task SE-network for image splicing localization](https://ieeexplore.ieee.org/abstract/document/9591639)
 
 # Training and testing 🚆
 
-Train
+* Train
+
+1. Train content-based prior
+
+option1: Trained by yourself. Put the final pretrain model into ./model and named it as model_lo.pt and model_vi.pt (for fakeL and fakeV)
+
 ```
-python src/main.py
+python src/main.py --data_train Vaihingen --data_train_dir fakeV --model restore
 ```
-Inference
+I take fakeV as example. It could be changed to --data_train LoveDA --data_train_dir fakeV.
+
+option2: Download the pretrain model from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./pretrain/prior) and put it into ./model
+
+2. Train FLDCF
+
 ```
-python src/test.py
+python src/main.py --data_train Vaihingen --data_train_dir fakeV --model fldcf
 ```
+
+* Inference
+
+```
+python src/test.py --data_train Vaihingen --data_train_dir fakeV --model fldcf --pre_train model_fakeV.pt
+```
+
+The pretrain
+
 
 # Trained checkpoints 💾
 
-Our pretrain model could be obtained from 
+Our pretrain model could be obtained from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./pretrain/prior) (./pretrain/fldcf)
 
 
 ## BibTeX 🙏
 
 If you have any questions, be free to contact with me! I promise I will reply as soon as possible.
 ```
-loading
+Paper is loading
 ```

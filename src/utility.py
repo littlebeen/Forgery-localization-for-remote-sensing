@@ -164,27 +164,6 @@ def quantize(img, rgb_range):
     pixel_range = 255 / rgb_range
     return img.mul(pixel_range).clamp(0, 255).round().div(pixel_range)
 
-def calc_psnr(sr, hr, scale, rgb_range, dataset=None):
-    if hr.nelement() == 1: return 0
-
-    diff = (sr - hr) / rgb_range
-    shave = scale + 6
-
-    valid = diff[..., shave:-shave, shave:-shave]
-    mse = valid.pow(2).mean()
-
-    return -10 * math.log10(mse)
-
-def calc_ssim(sr,hr,rgb_range):
-    sr_img=sr[0].cpu().detach().numpy()
-    hr_img=hr[0].cpu().detach().numpy()
-    if sr_img.shape[2]>5:
-        sr_img = np.transpose(sr_img, (1, 2, 0))
-    if hr_img.shape[2] > 5:
-        hr_img = np.transpose(hr_img, (1, 2, 0))
-    ssim=cal_ssim(sr_img,hr_img,data_range=rgb_range,channel_axis=2)
-    return ssim
-
 def make_optimizer(args, target):
     '''
         make optimizer and scheduler together

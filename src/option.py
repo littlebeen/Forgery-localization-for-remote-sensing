@@ -18,13 +18,13 @@ parser.add_argument('--seed', type=int, default=1,
                     help='random seed')
 parser.add_argument('--local_rank',type=int, default=0)
 # Data specifications
-parser.add_argument('--dir_data', type=str, default='../data',
+parser.add_argument('--dir_data', type=str, default='./data',
                     help='dataset directory')
 parser.add_argument('--dir_demo', type=str, default='../Demo',
                     help='demo image directory')
-parser.add_argument('--data_train', type=str, default='Lovada',  ######dataset加载模型 Lovada Vaihingen Lovadagt
+parser.add_argument('--data_train', type=str, default='Vaihingen',  ######dataset加载模型 Lovada Vaihingen Lovadagt
                     help='train dataset name')
-parser.add_argument('--data_train_dir', type=str, default='fakeL',  #fakeL fakeV
+parser.add_argument('--data_train_dir', type=str, default='fakeV',  #fakeL fakeV
                     help='test dataset name')
 parser.add_argument('--data_range', type=str, default='1-800/801-810',
                     help='train/test data range')

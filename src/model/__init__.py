@@ -16,11 +16,11 @@ def get_model(name,args):
     if(name =='scunet'):
         from .scunet.scunet import SCSEUnet as M
     if(name =='fldcf'):
-        from .my.my import FLDCF as M
+        from .fldcf.fldcf import FLDCF as M
     if(name =='mflnet'):
-        from .my.my import MFLnet as M
+        from .fldcf.fldcf import MFLnet as M
     if(name =='restore'):
-        from .my.my import Restore as M
+        from .fldcf.fldcf import Restore as M
     if(name=='mvss'):
         from .mvss.mvssnet import get_mvss
         return get_mvss(backbone='resnet50',
