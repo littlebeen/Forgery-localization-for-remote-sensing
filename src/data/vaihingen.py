@@ -16,14 +16,12 @@ class Vaihingen(SRData):
     def _scan(self):
         if(self.train):
             names_lr = sorted(
-                glob.glob(os.path.join(self.dir_lr, '*' + '.png'))
+                glob.glob(os.path.join(self.dir_lrl, '*' + '.png'))+ 
+                glob.glob(os.path.join(self.dir_lrr, '*' + '.png'))
             )
-            #names_lr=[]
             names_hr = []
             for f in names_lr:
                 filename, _ = os.path.splitext(os.path.basename(f))
-                #names_lr.append(f.replace('train/inpainted','copy&paste'))
-                #names_hr.append(os.path.join(self.apath, 'gt_mask','gt_mask.png'))
                 names_hr.append(os.path.join(
                     self.dir_hr, '{}{}'.format(
                         filename, '.png'
@@ -37,14 +35,12 @@ class Vaihingen(SRData):
                 names_hr_gt.append(os.path.join(self.apath, 'gt_mask','gt_mask.png'))
         else:
             names_lr = sorted(
-                glob.glob(os.path.join(self.dir_test_lr, '*' + '.png'))
+                glob.glob(os.path.join(self.dir_test_lrl, '*' + '.png'))+
+                glob.glob(os.path.join(self.dir_test_lrr, '*' + '.png'))
             )
-            #names_lr=[]
             names_hr = []
             for f in names_lr:
                 filename, _ = os.path.splitext(os.path.basename(f))
-                #names_lr.append(f.replace('test/inpainted','copy&paste'))
-                # names_hr.append('/media/lscsc/nas/jialu/fakedetect/image/50.png')
                 names_hr.append(os.path.join( 
                     self.dir_test_hr, '{}{}'.format(
                         filename, '.png'
@@ -56,8 +52,8 @@ class Vaihingen(SRData):
             names_hr_gt = []
             for f in names_lr_gt:
                 names_hr_gt.append(os.path.join(self.apath, 'gt_mask','gt_mask.png'))
-        # names_hr=names_hr_gt+names_hr
-        # names_lr=names_lr_gt+names_lr
+        names_hr=names_hr_gt+names_hr
+        names_lr=names_lr_gt+names_lr
         return names_hr, names_lr
 
     def __getitem__(self, idx):
@@ -74,12 +70,13 @@ class Vaihingen(SRData):
     def _set_filesystem(self, dir_data):
         super(Vaihingen, self)._set_filesystem(dir_data)
         self.dir_hr = os.path.join(self.apath, 'train/inpainted_mask')
-        self.dir_lr = os.path.join(self.apath, 'train/inpainted')
+        self.dir_lrl = os.path.join(self.apath, 'train/lama')
+        self.dir_lrr = os.path.join(self.apath, 'train/repaint')
         self.dir_lr_gt = os.path.join(self.apath, 'train/gt')
-        # self.dir_test_hr = os.path.join(self.apath, 'test/diverse_mask/regular_mask30')
-        # self.dir_test_lr = os.path.join(self.apath, 'test/diverse_mask/lama_regular')
         self.dir_test_hr = os.path.join(self.apath, 'test/inpainted_mask')
-        self.dir_test_lr = os.path.join(self.apath, 'test/repaint')
+        self.dir_test_lrr = os.path.join(self.apath, 'test/repaint')
+        self.dir_test_lrl = os.path.join(self.apath, 'test/lama')
         self.dir_test_lr_gt = os.path.join(self.apath, 'test/gt')
+        self.dir_gt_mask = os.path.join(self.apath, 'gt_mask')
 
 

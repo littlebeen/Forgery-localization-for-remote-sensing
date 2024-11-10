@@ -41,14 +41,29 @@ class SRData(data.Dataset):
         if args.ext.find('img') >= 0 or benchmark:
             self.images_hr, self.images_lr = list_hr, list_lr
         elif args.ext.find('sep') >= 0:
+            os.makedirs(
+                    self.dir_gt_mask.replace(self.apath, path_bin),
+                    exist_ok=True
+            )
             if train:  #训练集和测试集分开
                 os.makedirs(
                     self.dir_hr.replace(self.apath, path_bin),
                     exist_ok=True
                 )
                 os.makedirs(
+                    self.dir_lr_gt.replace(self.apath, path_bin),
+                    exist_ok=True
+                )
+                os.makedirs(
                     os.path.join(
-                        self.dir_lr.replace(self.apath, path_bin),
+                        self.dir_lrr.replace(self.apath, path_bin),
+                        'X{}'.format(args.scale)
+                    ),
+                    exist_ok=True
+                )
+                os.makedirs(
+                    os.path.join(
+                        self.dir_lrl.replace(self.apath, path_bin),
                         'X{}'.format(args.scale)
                     ),
                     exist_ok=True
@@ -71,8 +86,19 @@ class SRData(data.Dataset):
                     exist_ok=True
                 )
                 os.makedirs(
+                    self.dir_test_lr_gt.replace(self.apath, path_bin),
+                    exist_ok=True
+                )
+                os.makedirs(
                     os.path.join(
-                        self.dir_test_lr.replace(self.apath, path_bin),
+                        self.dir_test_lrr.replace(self.apath, path_bin),
+                        'X{}'.format(args.scale)
+                    ),
+                    exist_ok=True
+                )
+                os.makedirs(
+                    os.path.join(
+                        self.dir_test_lrl.replace(self.apath, path_bin),
                         'X{}'.format(args.scale)
                     ),
                     exist_ok=True

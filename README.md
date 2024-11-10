@@ -68,12 +68,10 @@ python src/main.py --data_train Vaihingen --data_train_dir fakeV --model fldcf
 python src/test.py --data_train Vaihingen --data_train_dir fakeV --model fldcf --pre_train model_fakeV.pt
 ```
 
-The pretrain
-
 
 # Trained checkpoints 💾
 
-Our pretrain model could be obtained from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./pretrain/prior) (./pretrain/fldcf)
+Our pretrain model could be obtained from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./pretrain/fldcf)
 
 
 ## BibTeX 🙏

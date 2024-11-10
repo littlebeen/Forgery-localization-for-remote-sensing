@@ -48,7 +48,7 @@ parser.add_argument('--no_augment', action='store_true',
                     help='do not use data augmentation')
 
 # Model specifications
-parser.add_argument('--model', default='restore',   #model#########################
+parser.add_argument('--model', default='fldcf',   #model#########################
                     help='model name')
 parser.add_argument('--discriminator', default='discriminator_vgg_128',
                     help='model name')
@@ -156,7 +156,6 @@ parser.add_argument('--dbdepth',type=int, default=6,
                     help='do not use data augmentation')
 
 args = parser.parse_args()
-template.set_template(args)
 
 
 if args.epochs == 0:
