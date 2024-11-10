@@ -50,10 +50,5 @@ Our pretrain model could be obtained from
 
 If you have any questions, be free to contact with me! I promise I will reply as soon as possible.
 ```
-@article{Schult23ICRA,
-  title     = {{Mask3D: Mask Transformer for 3D Semantic Instance Segmentation}},
-  author    = {Schult, Jonas and Engelmann, Francis and Hermans, Alexander and Litany, Or and Tang, Siyu and Leibe, Bastian},
-  booktitle = {{International Conference on Robotics and Automation (ICRA)}},
-  year      = {2023}
-}
+loading
 ```
