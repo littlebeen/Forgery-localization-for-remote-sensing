@@ -47,7 +47,7 @@ Forgery localization
 
 1. Train content-based prior
 
-option1: Trained by yourself. Put the final pretrain model into ./model and named it as model_lo.pt and model_vi.pt (for fakeL and fakeV). !! still under process. Cannot used. Please choose option2.
+option1: Trained by yourself. Put the final pretrain model into ./model and named it as model_lo.pt and model_vi.pt (for fakeL and fakeV). !! Still under process. Now cannot used. Please choose option2.
 
 ```
 python src/main.py --data_train Vaihingengt --data_train_dir fakeV --model restore
