@@ -47,12 +47,12 @@ Forgery localization
 
 1. Train content-based prior
 
-option1: Trained by yourself. Put the final pretrain model into ./model and named it as model_lo.pt and model_vi.pt (for fakeL and fakeV)
+option1: Trained by yourself. Put the final pretrain model into ./model and named it as model_lo.pt and model_vi.pt (for fakeL and fakeV). !! still under process. Cannot used. Please choose option2.
 
 ```
-python src/main.py --data_train Vaihingen --data_train_dir fakeV --model restore
+python src/main.py --data_train Vaihingengt --data_train_dir fakeV --model restore
 ```
-I take fakeV as example. It could be changed to --data_train LoveDA --data_train_dir fakeV.
+I take fakeV as example. It could be changed to --data_train Lovadagt --data_train_dir fakeL.
 
 option2: Download the pretrain model from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./pretrain/prior) and put it into ./model
 
@@ -65,7 +65,7 @@ python src/main.py --data_train Vaihingen --data_train_dir fakeV --model fldcf
 * Inference
 
 ```
-python src/test.py --data_train Vaihingen --data_train_dir fakeV --model fldcf --pre_train model_fakeV.pt
+python src/test.py --data_train Vaihingen --data_train_dir fakeV --model fldcf --pre_train ./model/model_fakeV.pt
 ```
 
 

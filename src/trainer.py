@@ -123,8 +123,6 @@ class Trainer():
                 data_pre.append(out.item()>0.5)      
 
             if(pred is not None):
-                # if(real[0]!=1.0):
-                #data_avg_result.append(out.item())
                 data_list.append([hr_cacu.flatten(), pred.flatten()])
                 mask_avg.append( 1-hr_cacu.mean())
                 pred = 1-pred
@@ -136,10 +134,6 @@ class Trainer():
             MIoU = get_iou(data_list, 2)
         if(len(data_real)!=0):
             Acc = get_Acc(data_real,data_pre)
-        # print('Number:' +str(len(data_list)))
-        # print('Value result: {:.2f}'.format(np.mean(data_avg_result)))
-        
-        # print('Mask: {:.4f}'.format(np.mean(mask_avg)))
 
         self.ckp.write_log('Forward: {:.2f}s\n'.format(timer_test.toc()))
         self.ckp.write_log('Saving...')
@@ -148,7 +142,7 @@ class Trainer():
             self.ckp.end_background()
 
         if not self.args.test_only:
-            self.ckp.save(self, epoch, is_best=0.1>best)
+            self.ckp.save(self, epoch, is_best=False)
 
         self.ckp.write_log(
             'Total: {:.2f}s\n'.format(timer_test.toc()), refresh=True
@@ -190,7 +184,7 @@ class Trainer():
             self.ckp.end_background()
 
         if not self.args.test_only:
-            self.ckp.save(self, epoch, is_best=0.1>best)
+            self.ckp.save(self, epoch, is_best=False)
 
         self.ckp.write_log(
             'Total: {:.2f}s\n'.format(timer_test.toc()), refresh=True

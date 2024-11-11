@@ -1,6 +1,6 @@
 # only train content-based prior model
 
-python src/main.py --data_train Vaihingen --data_train_dir fakeV --model restore
+python src/main.py --data_train Vaihingengt --data_train_dir fakeV --model restore
 
 # only train M-FLnet (without forgery detection, optional)
 
