@@ -78,5 +78,13 @@ Our pretrain model could be obtained from [link](https://pan.baidu.com/s/1ugHYZE
 
 If you have any questions, be free to contact with me! I promise I will reply as soon as possible.
 ```
-Paper is loading
+@ARTICLE{10756746,
+  author={Sui, Jialu and Ma, Ding and Jay Kuo, C.-C. and Pun, Man-On},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={FLDCF: A Collaborative Framework for Forgery Localization and Detection in Satellite Imagery}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TGRS.2024.3502035}}
 ```
