@@ -83,8 +83,7 @@ If you have any questions, be free to contact with me! I promise I will reply as
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
   title={FLDCF: A Collaborative Framework for Forgery Localization and Detection in Satellite Imagery}, 
   year={2024},
-  volume={},
-  number={},
-  pages={1-1},
+  volume={62},
+  pages={1-13},
   doi={10.1109/TGRS.2024.3502035}}
 ```
