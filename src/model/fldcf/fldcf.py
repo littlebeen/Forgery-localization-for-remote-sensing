@@ -730,6 +730,6 @@ class MFLnet(nn.Module):  #只有loaclization没有detection, FLDCF是包含loca
         score3 = self.br7(score3)	
 
 
-        return score3,_
+        return score3, None
 
 

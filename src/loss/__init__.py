@@ -79,15 +79,16 @@ class Loss_fake():
         self.image_loss_function = nn.L1Loss()
     def loss_calc(self,out,label, out_label, model):
         out_label=out_label.type(torch.long)
-        if(model=='fldcf'):
+        if(model=='fldcf' or model=='mflnet'):
             pred, real_or = out
             b,c,w,h = pred.size()
             label = Variable(label.long()).cuda()
             corss = self.criterion(pred, label) 
-            gan=self.fake(real_or,out_label)
-            loss = corss+gan
-            # loss = gan
-            # loss = corss
+            if(model=='fldcf'):
+                gan=self.fake(real_or,out_label)
+                loss = corss+gan
+            else:
+                loss = corss
         if(model=='movenet'):
             pred = out
             b,c,w,h = pred.size()
@@ -120,6 +121,11 @@ class Loss_fake():
             pred = np.asarray(np.argmax(pred, axis=0), dtype=int)
             _, predicted_eval = torch.max(real_or.data, 1)
             return pred, predicted_eval
+        if(model=='mflnet'):
+            pred, _ = out
+            pred = pred.cpu().data[0].numpy()
+            pred = np.asarray(np.argmax(pred, axis=0), dtype=int)
+            return pred, None
         if(model=='movenet'):
             pred = out
             pred = pred.cpu().numpy()
