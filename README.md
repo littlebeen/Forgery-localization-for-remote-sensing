@@ -6,7 +6,7 @@ The code for FLDCF: A Collaborative Framework for Forgery Localization and Detec
 
 # Data preprocessing 🔨
 
-Our datasets could be obtained from two platform 
+Our datasets could be obtained from two platforms
 
 1.Baidu cloud [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./data)
 
