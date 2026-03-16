@@ -6,7 +6,10 @@ The code for FLDCF: A Collaborative Framework for Forgery Localization and Detec
 
 # Data preprocessing 🔨
 
-Our datasets could be obtained from [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./data)
+Our datasets could be obtained from two platform 
+
+1.Baidu cloud [link](https://pan.baidu.com/s/1ugHYZEfaoGLHosa8whbGiA) code：been (./data)
+2.Hugging face [link](https://huggingface.co/littlebeen/FLDCF/tree/main)
 
 
 Put it into ./data and rename them as fakeV and fakeL.
